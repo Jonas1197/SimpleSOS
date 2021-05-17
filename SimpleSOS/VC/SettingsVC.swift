@@ -49,7 +49,6 @@ class SettingsVC: UIViewController, Storyboarded {
         configureMainTitle()
         configureButton()
         configureTableView()
-        initializeContacts()
     }
     
     private func configureMainTitle() {
@@ -87,15 +86,6 @@ class SettingsVC: UIViewController, Storyboarded {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-    }
-    
-    private func initializeContacts() {
-        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
-            self.contacts = contacts
-            tableView.reloadData()
-        } else {
-            print("Failed to fetch contacts or it might be nil.")
-        }
     }
     
     @objc private func aboutButtonTapped(_ sender: UIButton) {
@@ -172,6 +162,13 @@ extension SettingsVC: CNContactPickerDelegate {
 //MARK: - SettingsCell
 extension SettingsVC: SettingsCellDelegate {
     func settingsCellHasChangedToggleStatus(for contact: SSContact) {
-        print(contact)
+        var index = 0
+        for element in contacts {
+            if element.phoneNumber == contact.phoneNumber {
+                contacts[index] = contact
+            } else { index += 1 }
+        }
+    
+        try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
     }
 }
