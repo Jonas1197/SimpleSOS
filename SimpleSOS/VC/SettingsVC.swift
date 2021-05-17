@@ -12,7 +12,14 @@ class SettingsVC: UIViewController, Storyboarded {
 
     weak var coordinator: MainCoordinator?
 
-    var contacts: [SSContact] = [.init(fullName: "Petra", phoneNumber: "123456"), .init(fullName: "Lubljana", phoneNumber: "789456"), .init(fullName: "add contact", phoneNumber: SettingsCell.newCellIdentifier)]
+    var contacts: [SSContact] = {
+        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
+            return contacts
+        } else {
+            print("Failed to fetch contacts or it might be nil.")
+            return [SSContact]()
+        }
+    }()
     
     private let mainTitle = MainTitleLabel()
     
@@ -42,6 +49,7 @@ class SettingsVC: UIViewController, Storyboarded {
         configureMainTitle()
         configureButton()
         configureTableView()
+        initializeContacts()
     }
     
     private func configureMainTitle() {
@@ -69,7 +77,6 @@ class SettingsVC: UIViewController, Storyboarded {
     }
     
     private func fixTableView() {
-//        tableView?.fix(in: view, belowView: mainTitle, withTopPadding: 30)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .clear
         tableView.separatorColor  = .init(white: 1, alpha: 0.4)
@@ -80,6 +87,15 @@ class SettingsVC: UIViewController, Storyboarded {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+    
+    private func initializeContacts() {
+        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
+            self.contacts = contacts
+            tableView.reloadData()
+        } else {
+            print("Failed to fetch contacts or it might be nil.")
+        }
     }
     
     @objc private func aboutButtonTapped(_ sender: UIButton) {
@@ -100,7 +116,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return view.frame.width / 4
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -144,6 +160,8 @@ extension SettingsVC: CNContactPickerDelegate {
         }
         
         tableView.reloadData()
+        
+        try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
