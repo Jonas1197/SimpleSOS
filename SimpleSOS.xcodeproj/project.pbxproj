@@ -1,0 +1,722 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		751FE86F264ABA5800541FC9 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE86E264ABA5700541FC9 /* TogglesView.swift */; };
+		751FE871264AC25D00541FC9 /* CallReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE870264AC25D00541FC9 /* CallReference.swift */; };
+		751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE872264BC32600541FC9 /* SettingsCell.swift */; };
+		751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751FE873264BC32600541FC9 /* SettingsCell.xib */; };
+		751FE877264BC97E00541FC9 /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
+		758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A5A7B2652537B00F05C68 /* Archiver.swift */; };
+		75C688BD264971B000500C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BC264971B000500C61 /* AppDelegate.swift */; };
+		75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BE264971B000500C61 /* SceneDelegate.swift */; };
+		75C688C4264971B000500C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C688C2264971B000500C61 /* Main.storyboard */; };
+		75C688C6264971B500500C61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C688C5264971B500500C61 /* Assets.xcassets */; };
+		75C688C9264971B500500C61 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C688C7264971B500500C61 /* LaunchScreen.storyboard */; };
+		75C688D4264971B500500C61 /* SimpleSOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688D3264971B500500C61 /* SimpleSOSTests.swift */; };
+		75C688DF264971B500500C61 /* SimpleSOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688DE264971B500500C61 /* SimpleSOSUITests.swift */; };
+		75C688ED2649741600500C61 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688EC2649741600500C61 /* MainCoordinator.swift */; };
+		75C688EF264974E400500C61 /* SosVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688EE264974E400500C61 /* SosVC.swift */; };
+		75C688F22649750A00500C61 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688F12649750A00500C61 /* SettingsVC.swift */; };
+		75C688F42649751B00500C61 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688F32649751B00500C61 /* HistoryVC.swift */; };
+		75C688F62649759100500C61 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688F52649759100500C61 /* Storyboarded.swift */; };
+		75C688FC2649797B00500C61 /* EmergencyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688FB2649797B00500C61 /* EmergencyButton.swift */; };
+		75C688FE26497E0400500C61 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688FD26497E0400500C61 /* Constants.swift */; };
+		75C6890026497E2700500C61 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688FF26497E2700500C61 /* Extensions.swift */; };
+		75C68908264982A000500C61 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68902264982A000500C61 /* OpenSans-Italic.ttf */; };
+		75C68909264982A000500C61 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68903264982A000500C61 /* OpenSans-Light.ttf */; };
+		75C6890A264982A000500C61 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68904264982A000500C61 /* OpenSans-Regular.ttf */; };
+		75C6890B264982A000500C61 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68905264982A000500C61 /* OpenSans-BoldItalic.ttf */; };
+		75C6890C264982A000500C61 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68906264982A000500C61 /* OpenSans-Bold.ttf */; };
+		75C6890D264982A000500C61 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68907264982A000500C61 /* OpenSans-SemiBold.ttf */; };
+		75C6890F26498C3600500C61 /* EmergencyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6890E26498C3600500C61 /* EmergencyLabel.swift */; };
+		75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6891026498FA500500C61 /* MainTitleLabel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		75C688D0264971B500500C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75C688B1264971AF00500C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75C688B8264971B000500C61;
+			remoteInfo = SimpleSOS;
+		};
+		75C688DB264971B500500C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75C688B1264971AF00500C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75C688B8264971B000500C61;
+			remoteInfo = SimpleSOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		751FE86E264ABA5700541FC9 /* TogglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
+		751FE870264AC25D00541FC9 /* CallReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReference.swift; sourceTree = "<group>"; };
+		751FE872264BC32600541FC9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		751FE873264BC32600541FC9 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
+		751FE876264BC97E00541FC9 /* SSContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSContact.swift; sourceTree = "<group>"; };
+		758A5A7B2652537B00F05C68 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
+		75C688B9264971B000500C61 /* SimpleSOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C688BC264971B000500C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		75C688BE264971B000500C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		75C688C3264971B000500C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75C688C5264971B500500C61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75C688C8264971B500500C61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		75C688CA264971B500500C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C688CF264971B500500C61 /* SimpleSOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleSOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C688D3264971B500500C61 /* SimpleSOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSOSTests.swift; sourceTree = "<group>"; };
+		75C688D5264971B500500C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C688DA264971B500500C61 /* SimpleSOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleSOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		75C688DE264971B500500C61 /* SimpleSOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleSOSUITests.swift; sourceTree = "<group>"; };
+		75C688E0264971B500500C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75C688EC2649741600500C61 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		75C688EE264974E400500C61 /* SosVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosVC.swift; sourceTree = "<group>"; };
+		75C688F12649750A00500C61 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		75C688F32649751B00500C61 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		75C688F52649759100500C61 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		75C688FB2649797B00500C61 /* EmergencyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyButton.swift; sourceTree = "<group>"; };
+		75C688FD26497E0400500C61 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../../../../../../../Applications/Constants.swift; sourceTree = "<group>"; };
+		75C688FF26497E2700500C61 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		75C68902264982A000500C61 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		75C68903264982A000500C61 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		75C68904264982A000500C61 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		75C68905264982A000500C61 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		75C68906264982A000500C61 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		75C68907264982A000500C61 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		75C6890E26498C3600500C61 /* EmergencyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyLabel.swift; sourceTree = "<group>"; };
+		75C6891026498FA500500C61 /* MainTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleLabel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		75C688B6264971B000500C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688CC264971B500500C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688D7264971B500500C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		75C688B0264971AF00500C61 = {
+			isa = PBXGroup;
+			children = (
+				75C688BB264971B000500C61 /* SimpleSOS */,
+				75C688D2264971B500500C61 /* SimpleSOSTests */,
+				75C688DD264971B500500C61 /* SimpleSOSUITests */,
+				75C688BA264971B000500C61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		75C688BA264971B000500C61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				75C688B9264971B000500C61 /* SimpleSOS.app */,
+				75C688CF264971B500500C61 /* SimpleSOSTests.xctest */,
+				75C688DA264971B500500C61 /* SimpleSOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75C688BB264971B000500C61 /* SimpleSOS */ = {
+			isa = PBXGroup;
+			children = (
+				75C689012649828200500C61 /* Fonts */,
+				75C688FA2649795F00500C61 /* Elements */,
+				75C688F92649761500500C61 /* Models */,
+				75C688BC264971B000500C61 /* AppDelegate.swift */,
+				75C688BE264971B000500C61 /* SceneDelegate.swift */,
+				75C688C2264971B000500C61 /* Main.storyboard */,
+				75C688C5264971B500500C61 /* Assets.xcassets */,
+				75C688C7264971B500500C61 /* LaunchScreen.storyboard */,
+				75C688CA264971B500500C61 /* Info.plist */,
+				75C688EC2649741600500C61 /* MainCoordinator.swift */,
+				75C688F0264974E900500C61 /* VC */,
+				75C688F8264975D200500C61 /* Protocols */,
+				75C688FD26497E0400500C61 /* Constants.swift */,
+				75C688FF26497E2700500C61 /* Extensions.swift */,
+				758A5A7B2652537B00F05C68 /* Archiver.swift */,
+			);
+			path = SimpleSOS;
+			sourceTree = "<group>";
+		};
+		75C688D2264971B500500C61 /* SimpleSOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				75C688D3264971B500500C61 /* SimpleSOSTests.swift */,
+				75C688D5264971B500500C61 /* Info.plist */,
+			);
+			path = SimpleSOSTests;
+			sourceTree = "<group>";
+		};
+		75C688DD264971B500500C61 /* SimpleSOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				75C688DE264971B500500C61 /* SimpleSOSUITests.swift */,
+				75C688E0264971B500500C61 /* Info.plist */,
+			);
+			path = SimpleSOSUITests;
+			sourceTree = "<group>";
+		};
+		75C688F0264974E900500C61 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				75C688EE264974E400500C61 /* SosVC.swift */,
+				75C688F12649750A00500C61 /* SettingsVC.swift */,
+				75C688F32649751B00500C61 /* HistoryVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		75C688F8264975D200500C61 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75C688F52649759100500C61 /* Storyboarded.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75C688F92649761500500C61 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				751FE870264AC25D00541FC9 /* CallReference.swift */,
+				751FE876264BC97E00541FC9 /* SSContact.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75C688FA2649795F00500C61 /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				75C688FB2649797B00500C61 /* EmergencyButton.swift */,
+				75C6890E26498C3600500C61 /* EmergencyLabel.swift */,
+				75C6891026498FA500500C61 /* MainTitleLabel.swift */,
+				751FE86E264ABA5700541FC9 /* TogglesView.swift */,
+				751FE872264BC32600541FC9 /* SettingsCell.swift */,
+				751FE873264BC32600541FC9 /* SettingsCell.xib */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
+		75C689012649828200500C61 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				75C68906264982A000500C61 /* OpenSans-Bold.ttf */,
+				75C68905264982A000500C61 /* OpenSans-BoldItalic.ttf */,
+				75C68902264982A000500C61 /* OpenSans-Italic.ttf */,
+				75C68903264982A000500C61 /* OpenSans-Light.ttf */,
+				75C68904264982A000500C61 /* OpenSans-Regular.ttf */,
+				75C68907264982A000500C61 /* OpenSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		75C688B8264971B000500C61 /* SimpleSOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75C688E3264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOS" */;
+			buildPhases = (
+				75C688B5264971B000500C61 /* Sources */,
+				75C688B6264971B000500C61 /* Frameworks */,
+				75C688B7264971B000500C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleSOS;
+			productName = SimpleSOS;
+			productReference = 75C688B9264971B000500C61 /* SimpleSOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		75C688CE264971B500500C61 /* SimpleSOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75C688E6264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOSTests" */;
+			buildPhases = (
+				75C688CB264971B500500C61 /* Sources */,
+				75C688CC264971B500500C61 /* Frameworks */,
+				75C688CD264971B500500C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75C688D1264971B500500C61 /* PBXTargetDependency */,
+			);
+			name = SimpleSOSTests;
+			productName = SimpleSOSTests;
+			productReference = 75C688CF264971B500500C61 /* SimpleSOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		75C688D9264971B500500C61 /* SimpleSOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75C688E9264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOSUITests" */;
+			buildPhases = (
+				75C688D6264971B500500C61 /* Sources */,
+				75C688D7264971B500500C61 /* Frameworks */,
+				75C688D8264971B500500C61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				75C688DC264971B500500C61 /* PBXTargetDependency */,
+			);
+			name = SimpleSOSUITests;
+			productName = SimpleSOSUITests;
+			productReference = 75C688DA264971B500500C61 /* SimpleSOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		75C688B1264971AF00500C61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					75C688B8264971B000500C61 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					75C688CE264971B500500C61 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 75C688B8264971B000500C61;
+					};
+					75C688D9264971B500500C61 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 75C688B8264971B000500C61;
+					};
+				};
+			};
+			buildConfigurationList = 75C688B4264971AF00500C61 /* Build configuration list for PBXProject "SimpleSOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 75C688B0264971AF00500C61;
+			productRefGroup = 75C688BA264971B000500C61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				75C688B8264971B000500C61 /* SimpleSOS */,
+				75C688CE264971B500500C61 /* SimpleSOSTests */,
+				75C688D9264971B500500C61 /* SimpleSOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		75C688B7264971B000500C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C688C9264971B500500C61 /* LaunchScreen.storyboard in Resources */,
+				75C6890D264982A000500C61 /* OpenSans-SemiBold.ttf in Resources */,
+				75C68908264982A000500C61 /* OpenSans-Italic.ttf in Resources */,
+				75C6890C264982A000500C61 /* OpenSans-Bold.ttf in Resources */,
+				751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */,
+				75C688C6264971B500500C61 /* Assets.xcassets in Resources */,
+				75C6890B264982A000500C61 /* OpenSans-BoldItalic.ttf in Resources */,
+				75C68909264982A000500C61 /* OpenSans-Light.ttf in Resources */,
+				75C6890A264982A000500C61 /* OpenSans-Regular.ttf in Resources */,
+				75C688C4264971B000500C61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688CD264971B500500C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688D8264971B500500C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		75C688B5264971B000500C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C688EF264974E400500C61 /* SosVC.swift in Sources */,
+				751FE86F264ABA5800541FC9 /* TogglesView.swift in Sources */,
+				75C6890F26498C3600500C61 /* EmergencyLabel.swift in Sources */,
+				75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */,
+				75C688F42649751B00500C61 /* HistoryVC.swift in Sources */,
+				75C688ED2649741600500C61 /* MainCoordinator.swift in Sources */,
+				75C688FC2649797B00500C61 /* EmergencyButton.swift in Sources */,
+				751FE871264AC25D00541FC9 /* CallReference.swift in Sources */,
+				758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */,
+				75C688BD264971B000500C61 /* AppDelegate.swift in Sources */,
+				75C6890026497E2700500C61 /* Extensions.swift in Sources */,
+				75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */,
+				75C688F22649750A00500C61 /* SettingsVC.swift in Sources */,
+				751FE877264BC97E00541FC9 /* SSContact.swift in Sources */,
+				75C688F62649759100500C61 /* Storyboarded.swift in Sources */,
+				75C688FE26497E0400500C61 /* Constants.swift in Sources */,
+				751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688CB264971B500500C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C688D4264971B500500C61 /* SimpleSOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		75C688D6264971B500500C61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75C688DF264971B500500C61 /* SimpleSOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		75C688D1264971B500500C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75C688B8264971B000500C61 /* SimpleSOS */;
+			targetProxy = 75C688D0264971B500500C61 /* PBXContainerItemProxy */;
+		};
+		75C688DC264971B500500C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75C688B8264971B000500C61 /* SimpleSOS */;
+			targetProxy = 75C688DB264971B500500C61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		75C688C2264971B000500C61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75C688C3264971B000500C61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		75C688C7264971B500500C61 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75C688C8264971B500500C61 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		75C688E1264971B500500C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		75C688E2264971B500500C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		75C688E4264971B500500C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		75C688E5264971B500500C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		75C688E7264971B500500C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleSOS.app/SimpleSOS";
+			};
+			name = Debug;
+		};
+		75C688E8264971B500500C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOSTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SimpleSOS.app/SimpleSOS";
+			};
+			name = Release;
+		};
+		75C688EA264971B500500C61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SimpleSOS;
+			};
+			name = Debug;
+		};
+		75C688EB264971B500500C61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SimpleSOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SimpleSOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		75C688B4264971AF00500C61 /* Build configuration list for PBXProject "SimpleSOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75C688E1264971B500500C61 /* Debug */,
+				75C688E2264971B500500C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75C688E3264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75C688E4264971B500500C61 /* Debug */,
+				75C688E5264971B500500C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75C688E6264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75C688E7264971B500500C61 /* Debug */,
+				75C688E8264971B500500C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		75C688E9264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75C688EA264971B500500C61 /* Debug */,
+				75C688EB264971B500500C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 75C688B1264971AF00500C61 /* Project object */;
+}
