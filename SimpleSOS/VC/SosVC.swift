@@ -30,6 +30,7 @@ final class SosVC: UIViewController, Storyboarded {
         super.viewDidLoad()
         setUp()
     }
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -71,9 +72,21 @@ final class SosVC: UIViewController, Storyboarded {
             togglesView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        for contact in contacts {
-            togglesView.add(toggeWithContact: contact)
+        if contacts.isEmpty {
+            togglesView.contacts?.append(.init())
+        } else {
+            togglesView.contacts = contacts
         }
+        
+        togglesView.configure()
+        NotificationCenter.addDefaultObserver(for: self, withNotificationName: Notification.updateToggles, and: #selector(updateToggles))
+        
+    }
+    
+    @objc private func updateToggles() {
+        contacts = Archiver.retrieveContacts()
+        togglesView.contacts = contacts
+        togglesView.configure()
     }
     
     private func callNumber(phoneNumber: String) {

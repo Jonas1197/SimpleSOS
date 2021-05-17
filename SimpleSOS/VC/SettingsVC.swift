@@ -13,8 +13,14 @@ class SettingsVC: UIViewController, Storyboarded {
     public static let maxCells = 7
     
     weak var coordinator: MainCoordinator?
-
-    var contacts: [SSContact] = Archiver.retrieveContacts()
+    
+    var contacts: [SSContact] = {
+        var contacts = Archiver.retrieveContacts()
+        if contacts.isEmpty {
+            contacts.append(.init())
+        }
+        return contacts
+    }()
     
     private let mainTitle     = MainTitleLabel()
     
@@ -88,6 +94,8 @@ class SettingsVC: UIViewController, Storyboarded {
     }
 }
 
+
+//MARK: - UITableView
 extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contacts.count
@@ -110,6 +118,21 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             onClickPickContact()
         }
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return indexPath.row == contacts.count - 1 ? false : true
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            contacts.remove(at: indexPath.row)
+            self.tableView.reloadData()
+            try? Archiver(directory: .contact).removeAll()
+            Archiver.saveContacts(contacts)
+            
+            NotificationCenter.post(to: Notification.updateToggles)
+        }
+    }
 }
 
 
@@ -125,7 +148,6 @@ extension SettingsVC: CNContactPickerDelegate {
             
         } else {
             let contactPicker = CNContactPickerViewController()
-            
             contactPicker.delegate = self
             contactPicker.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
             
@@ -143,9 +165,11 @@ extension SettingsVC: CNContactPickerDelegate {
         let firstPhoneNumber:CNPhoneNumber = userPhoneNumbers[0].value
         
         // user phone number string
-        let primaryPhoneNumberStr = firstPhoneNumber.stringValue
+        let primaryPhoneNumberStr = firstPhoneNumber.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
+        let spaceless = primaryPhoneNumberStr.filter { $0 != " " }
+        let final = spaceless.filter { $0 != "-" }
         
-        let contact = SSContact(fullName: userName, phoneNumber: primaryPhoneNumberStr)
+        let contact = SSContact(fullName: userName, phoneNumber: final)
         
         if contacts.count >= 2 {
             self.contacts.insert(contact, at: contacts.count - 1)
@@ -156,6 +180,7 @@ extension SettingsVC: CNContactPickerDelegate {
         tableView.reloadData()
         
         try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
+        NotificationCenter.post(to: Notification.updateToggles)
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {

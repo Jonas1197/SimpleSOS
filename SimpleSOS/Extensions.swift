@@ -138,3 +138,14 @@ extension UIView {
         return estimatedFrame
     }
 }
+
+extension NotificationCenter {
+    static func addDefaultObserver(for object: Any, withNotificationName name: String, and method: Selector) {
+        let notificationName = NSNotification.Name(name)
+        self.default.addObserver(object, selector: method, name: notificationName, object: nil)
+    }
+    
+    static func post(to notificationName: String) {
+        self.default.post(name: NSNotification.Name(notificationName), object: nil, userInfo: nil)
+    }
+}

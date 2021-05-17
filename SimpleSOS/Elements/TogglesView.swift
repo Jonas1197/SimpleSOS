@@ -19,6 +19,8 @@ class TogglesView: UIView {
 
     var delegate: TogglesViewDelegate?
     
+    var contacts: [SSContact]?
+    
     private var mainTitleLabel: UILabel = {
         let label           = UILabel()
         label.text          = "Quick call options"
@@ -76,6 +78,18 @@ class TogglesView: UIView {
         } else if rowTwoStacks.count < (maxElementsPerRow) {
             rowTwoStacks.append(vstack)
             rowTowhstack.addArrangedSubview(vstack)
+        }
+    }
+    
+    func configure() {
+        toggles.removeAll()
+        labels.removeAll()
+        if let contacts = contacts {
+            for contact in contacts {
+                if contact.phoneNumber != SettingsCell.newCellIdentifier {
+                    add(toggeWithContact: contact)
+                }
+            }
         }
     }
 
