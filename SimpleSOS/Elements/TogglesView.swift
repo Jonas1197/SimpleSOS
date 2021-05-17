@@ -7,12 +7,18 @@
 
 import UIKit
 
-public let maxToggles = 5
+public let maxToggles = 6
 public let maxElementsPerRow = 3
 public let maxRows = 2
 
+protocol TogglesViewDelegate {
+    func didToggleContact(contact: SSContact) -> Void
+}
+
 class TogglesView: UIView {
 
+    var delegate: TogglesViewDelegate?
+    
     private var mainTitleLabel: UILabel = {
         let label           = UILabel()
         label.text          = "Quick call options"
@@ -23,11 +29,11 @@ class TogglesView: UIView {
         return label
     }()
     
-    private var toggles: [UISwitch]    = [UISwitch]()
+    private var toggles:      [(switch: UISwitch, contact: SSContact)] = [(UISwitch, SSContact)]()
     
-    private var labels: [UILabel]      = [UILabel]()
+    private var labels:       [UILabel]     = [UILabel]()
     
-    private var vstacks: [UIStackView] = [UIStackView]()
+    private var vstacks:      [UIStackView] = [UIStackView]()
     
     private var rowOneStacks: [UIStackView] = [UIStackView]()
     
@@ -49,13 +55,15 @@ class TogglesView: UIView {
         super.init(coder: coder)
     }
     
-    func add(toggeWithTitle title: String, andReference reference: CallReference) {
-        let label = UILabel(text: title, font: UIFont(name: Fonts.italic, size: 12)!, textColor: .white, tamic: false)
+    func add(toggeWithContact contact: SSContact) {
+        let label = UILabel(text: contact.fullName, font: UIFont(name: Fonts.italic, size: 12)!, textColor: .white, tamic: false)
         labels.append(label)
         
         let toggle = UISwitch()
         toggle.onTintColor    = .brightGreen
         toggle.preferredStyle = .sliding
+        toggle.addTarget(self, action: #selector(switchToggled), for: .valueChanged)
+        toggles.append((toggle, contact))
         
         let vstack = UIStackView(views: [label, toggle], axis: .vertical, spacing: 5, alignment: .center, distribution: .fill, tamic: false)
         vstacks.append(vstack)
@@ -70,11 +78,10 @@ class TogglesView: UIView {
             rowTowhstack.addArrangedSubview(vstack)
         }
     }
-    
+
 
     //MARK: - Main
     private func setUp() {
-        testInit()
         translatesAutoresizingMaskIntoConstraints = false
         configureMainTitleLabel()
         configureElements()
@@ -87,21 +94,8 @@ class TogglesView: UIView {
             mainTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-    
-    private func testInit() {
-        add(toggeWithTitle: "Police", andReference: .init())
-        add(toggeWithTitle: "Firefighters", andReference: .init())
-        add(toggeWithTitle: "Mom", andReference: .init())
-        add(toggeWithTitle: "Dad", andReference: .init())
-        add(toggeWithTitle: "Friend", andReference: .init())
-        add(toggeWithTitle: "007", andReference: .init())
-    }
-    
+
     private func configureElements() {
-        
-//        rowOnehstack.backgroundColor = .blue
-//        rowTowhstack.backgroundColor = .blue
-        
         addSubview(rowOnehstack)
         NSLayoutConstraint.activate([
             rowOnehstack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -116,5 +110,14 @@ class TogglesView: UIView {
             rowTowhstack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
-
+    
+    @objc private func switchToggled(_ sender: UISwitch) {
+        for toggle in toggles {
+            if toggle.switch != sender && toggle.switch.isOn {
+                toggle.switch.setOn(false, animated: true)
+            } else if toggle.switch == sender {
+                delegate?.didToggleContact(contact: toggle.contact)
+            }
+        }
+    }
 }

@@ -9,13 +9,20 @@ import UIKit
 
 final class SosVC: UIViewController, Storyboarded {
     
-    weak var coordinator: MainCoordinator?
+    public static let maxContacts = 6
+    
+    weak var coordinator:        MainCoordinator?
 
-    private var mainTitle: MainTitleLabel = .init()
+    private var contact:         SSContact?
+    
+    private var mainTitle:       MainTitleLabel  = .init()
     
     private var emergencyButton: EmergencyButton = .init()
     
-    private var togglesView: TogglesView = .init()
+    private var togglesView:     TogglesView     = .init()
+    
+    var contacts: [SSContact] = Archiver.retrieveContacts()
+    
     
     //MARK: - Main
     
@@ -55,6 +62,7 @@ final class SosVC: UIViewController, Storyboarded {
     }
     
     private func configureTogglesView() {
+        togglesView.delegate = self
         view.addSubview(togglesView)
         NSLayoutConstraint.activate([
             togglesView.topAnchor.constraint(equalTo: emergencyButton.bottomAnchor, constant: 50),
@@ -62,9 +70,14 @@ final class SosVC: UIViewController, Storyboarded {
             togglesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             togglesView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+        
+        for contact in contacts {
+            togglesView.add(toggeWithContact: contact)
+        }
     }
     
     private func callNumber(phoneNumber: String) {
+        print("calling: \(phoneNumber )")
         guard let url = URL(string: "tel://\(phoneNumber)"),
               UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
@@ -82,6 +95,9 @@ extension SosVC: MainTitleLabelDelegate {
 extension SosVC: EmergencyButtonDelegate {
     func didRequestEmergencyCall() {
         print("didRequestEmergencyCall")
+        if let phoneNumber = contact?.phoneNumber {
+            callNumber(phoneNumber: phoneNumber)
+        }
     }
     
     func shouldPresentSettings() {
@@ -94,3 +110,8 @@ extension SosVC: EmergencyButtonDelegate {
     }
 }
  
+extension SosVC: TogglesViewDelegate {
+    func didToggleContact(contact: SSContact) {
+        self.contact = contact
+    }
+}

@@ -10,18 +10,13 @@ import ContactsUI
 
 class SettingsVC: UIViewController, Storyboarded {
 
+    public static let maxCells = 7
+    
     weak var coordinator: MainCoordinator?
 
-    var contacts: [SSContact] = {
-        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
-            return contacts
-        } else {
-            print("Failed to fetch contacts or it might be nil.")
-            return [SSContact]()
-        }
-    }()
+    var contacts: [SSContact] = Archiver.retrieveContacts()
     
-    private let mainTitle = MainTitleLabel()
+    private let mainTitle     = MainTitleLabel()
     
     private var aboutButton: UIButton = {
         let button              = UIButton()
@@ -122,12 +117,21 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
 extension SettingsVC: CNContactPickerDelegate {
     
     func onClickPickContact(){
-        let contactPicker = CNContactPickerViewController()
+        if contacts.count >= SettingsVC.maxCells {
+            let alert = UIAlertController(title: "Wait!", message: "You can add up to 6 contacts.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Done", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            let contactPicker = CNContactPickerViewController()
+            
+            contactPicker.delegate = self
+            contactPicker.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
+            
+            present(contactPicker, animated: true, completion: nil)
+        }
         
-        contactPicker.delegate = self
-        contactPicker.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
-        
-        present(contactPicker, animated: true, completion: nil)
     }
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {

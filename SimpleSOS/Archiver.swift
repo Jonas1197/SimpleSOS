@@ -116,3 +116,15 @@ final class Archiver {
         }
     }
 }
+
+
+extension Archiver {
+    public static func retrieveContacts() -> [SSContact] {
+        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
+            return contacts
+        } else {
+            print("Failed to fetch contacts or it might be nil.")
+            return [SSContact]()
+        }
+    }
+}

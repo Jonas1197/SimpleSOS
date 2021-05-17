@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		751FE86F264ABA5800541FC9 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE86E264ABA5700541FC9 /* TogglesView.swift */; };
-		751FE871264AC25D00541FC9 /* CallReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE870264AC25D00541FC9 /* CallReference.swift */; };
 		751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE872264BC32600541FC9 /* SettingsCell.swift */; };
 		751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751FE873264BC32600541FC9 /* SettingsCell.xib */; };
 		751FE877264BC97E00541FC9 /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
@@ -57,7 +56,6 @@
 
 /* Begin PBXFileReference section */
 		751FE86E264ABA5700541FC9 /* TogglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
-		751FE870264AC25D00541FC9 /* CallReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallReference.swift; sourceTree = "<group>"; };
 		751FE872264BC32600541FC9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		751FE873264BC32600541FC9 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		751FE876264BC97E00541FC9 /* SSContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSContact.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 		75C688F92649761500500C61 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				751FE870264AC25D00541FC9 /* CallReference.swift */,
 				751FE876264BC97E00541FC9 /* SSContact.swift */,
 			);
 			path = Models;
@@ -375,7 +372,6 @@
 				75C688F42649751B00500C61 /* HistoryVC.swift in Sources */,
 				75C688ED2649741600500C61 /* MainCoordinator.swift in Sources */,
 				75C688FC2649797B00500C61 /* EmergencyButton.swift in Sources */,
-				751FE871264AC25D00541FC9 /* CallReference.swift in Sources */,
 				758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */,
 				75C688BD264971B000500C61 /* AppDelegate.swift in Sources */,
 				75C6890026497E2700500C61 /* Extensions.swift in Sources */,
