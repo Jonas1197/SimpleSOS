@@ -14,13 +14,11 @@ class SettingsVC: UIViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
     
-    var contacts: [SSContact] = {
-        var contacts = Archiver.retrieveContacts()
-        if contacts.isEmpty {
-            contacts.append(.init())
+    var contacts: [SSContact]! {
+        didSet {
+            //tableView.reloadData()
         }
-        return contacts
-    }()
+    }
     
     private let mainTitle     = MainTitleLabel()
     
@@ -39,17 +37,21 @@ class SettingsVC: UIViewController, Storyboarded {
     //MARK: - Main
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .softRed
         setUp()
     }
 
     
-    
     //MARK: - Body
     private func setUp() {
+        view.backgroundColor = .softRed
         configureMainTitle()
         configureButton()
         configureTableView()
+    }
+    
+    private func retrieveContacts() {
+        contacts = Archiver.retrieveContacts()
+        contacts.append(.init())
     }
     
     private func configureMainTitle() {
@@ -125,10 +127,12 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
+            
             contacts.remove(at: indexPath.row)
+            
             self.tableView.reloadData()
-            try? Archiver(directory: .contact).removeAll()
-            Archiver.saveContacts(contacts)
+            
+            try? Archiver(directory: .contact).deleteItem(forKey: contacts[indexPath.row].phoneNumber)
             
             NotificationCenter.post(to: Notification.updateToggles)
         }
@@ -150,7 +154,6 @@ extension SettingsVC: CNContactPickerDelegate {
             let contactPicker = CNContactPickerViewController()
             contactPicker.delegate = self
             contactPicker.displayedPropertyKeys = [CNContactGivenNameKey, CNContactPhoneNumbersKey]
-            
             present(contactPicker, animated: true, completion: nil)
         }
         
@@ -171,16 +174,26 @@ extension SettingsVC: CNContactPickerDelegate {
         
         let contact = SSContact(fullName: userName, phoneNumber: final)
         
-        if contacts.count >= 2 {
-            self.contacts.insert(contact, at: contacts.count - 1)
-        } else {
-            self.contacts.insert(contact, at: 0)
-        }
+        self.contacts.insert(contact, at: 0)
+        
+        saveNewContacts()
         
         tableView.reloadData()
-        
-        try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
+    
         NotificationCenter.post(to: Notification.updateToggles)
+    }
+    
+    private func saveNewContacts() {
+        var forSaving = [SSContact]()
+        
+        //try? Archiver(directory: .contact).removeAll()
+        
+        for contact in contacts where contact.phoneNumber != SettingsCell.newCellIdentifier {
+            forSaving.append(contact)
+        }
+        
+        
+        Archiver.saveContacts(forSaving)
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
@@ -199,5 +212,6 @@ extension SettingsVC: SettingsCellDelegate {
         }
     
         try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
+        NotificationCenter.post(to: Notification.updateToggles)
     }
 }

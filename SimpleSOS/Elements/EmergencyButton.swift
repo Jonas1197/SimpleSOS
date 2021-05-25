@@ -19,8 +19,6 @@ class EmergencyButton: UIView {
 
     var delegate: EmergencyButtonDelegate?
     
-    var maxY: CGFloat = 0
-    
     private var guidanceLabel: UILabel = {
         let label       = UILabel()
         label.text      = "In case of an emergency tap below"
@@ -185,7 +183,6 @@ class EmergencyButton: UIView {
     
 
     private func animateButtonTapped() {
-        
         UIView.animate(withDuration: 0.6, delay: 0, options: [.repeat, .allowUserInteraction, .curveEaseInOut, .autoreverse], animations: { [weak self] in
             guard let self = self else { return }
             
@@ -207,11 +204,14 @@ class EmergencyButton: UIView {
         }, completion: nil)
     }
     
+    func prepareForCall() {
+        animateButtonTapped()
+        emergencyLabel.emergencyMode = true
+    }
+    
     
     //MARK: - Objc
     @objc private func emergencyButtonTapped() {
-        animateButtonTapped()
-        emergencyLabel.emergencyMode = true
         delegate?.didRequestEmergencyCall()
     }
     

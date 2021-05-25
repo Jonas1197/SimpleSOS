@@ -11,15 +11,19 @@ public let maxToggles = 6
 public let maxElementsPerRow = 3
 public let maxRows = 2
 
-protocol TogglesViewDelegate {
+protocol TogglesViewDelegate: AnyObject {
     func didToggleContact(contact: SSContact) -> Void
 }
 
 class TogglesView: UIView {
 
-    var delegate: TogglesViewDelegate?
+    weak var delegate: TogglesViewDelegate?
     
-    var contacts: [SSContact]?
+    private var contacts: [SSContact] = Archiver.retrieveContacts() {
+        didSet {
+            configure()
+        }
+    }
     
     private var mainTitleLabel: UILabel = {
         let label           = UILabel()
@@ -41,9 +45,9 @@ class TogglesView: UIView {
     
     private var rowTwoStacks: [UIStackView] = [UIStackView]()
     
-    private var rowOnehstack: UIStackView = .init(axis: .horizontal, spacing: 5, alignment: .center, distribution: .fillEqually, tamic: false)
+    private var rowOnehstack: UIStackView   = .init(axis: .horizontal, spacing: 5, alignment: .center, distribution: .fillEqually, tamic: false)
     
-    private var rowTowhstack: UIStackView = .init(axis: .horizontal, spacing: 5, alignment: .center, distribution: .fillEqually, tamic: false)
+    private var rowTowhstack: UIStackView   = .init(axis: .horizontal, spacing: 5, alignment: .center, distribution: .fillEqually, tamic: false)
     
     
     
@@ -55,6 +59,7 @@ class TogglesView: UIView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setUp()
     }
     
     func add(toggeWithContact contact: SSContact) {
@@ -81,24 +86,28 @@ class TogglesView: UIView {
         }
     }
     
-    func configure() {
+    private func configure() {
+        vstacks.removeAll()
         toggles.removeAll()
         labels.removeAll()
-        if let contacts = contacts {
-            for contact in contacts {
-                if contact.phoneNumber != SettingsCell.newCellIdentifier {
-                    add(toggeWithContact: contact)
-                }
-            }
+        rowOneStacks.removeAll()
+        rowTwoStacks.removeAll()
+        for contact in contacts where (contact.phoneNumber != SettingsCell.newCellIdentifier && contact.isSelected) {
+            add(toggeWithContact: contact)
         }
     }
-
 
     //MARK: - Main
     private func setUp() {
         translatesAutoresizingMaskIntoConstraints = false
+        NotificationCenter.addDefaultObserver(for: self, withNotificationName: Notification.updateToggles, and: #selector(updateToggles))
         configureMainTitleLabel()
         configureElements()
+        configure()
+    }
+    
+    @objc private func updateToggles() {
+        contacts = Archiver.retrieveContacts()
     }
     
     private func configureMainTitleLabel() {

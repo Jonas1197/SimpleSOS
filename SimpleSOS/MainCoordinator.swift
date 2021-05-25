@@ -36,6 +36,9 @@ class MainCoordinator: Coordinator {
     func settings() {
         let vc = SettingsVC.instantiate()
         vc.coordinator = self
+        var retrievedContacts = Archiver.retrieveContacts()
+        retrievedContacts.append(.init())
+        vc.contacts = retrievedContacts
         navigationController.present(vc, animated: true, completion: nil)
     }
     

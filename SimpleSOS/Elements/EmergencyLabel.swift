@@ -15,7 +15,7 @@ final class EmergencyLabel: UIView {
         }
     }
     
-    public var emergencyMode: Bool! {
+    public var emergencyMode: Bool = false {
         didSet {
             emergencyMode ? (emergencyLabel.text = "SOS") : nil
         }

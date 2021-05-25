@@ -115,12 +115,6 @@ final class Archiver {
             try FileManager.default.removeItem(at: url)
         }
     }
-    
-    static func saveContacts(_ contacts: [SSContact]) {
-        for contact in contacts {
-            try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
-        }
-    }
 }
 
 
@@ -131,6 +125,12 @@ extension Archiver {
         } else {
             print("Failed to fetch contacts or it might be nil.")
             return [SSContact]()
+        }
+    }
+    
+    public static func saveContacts(_ contacts: [SSContact]) {
+        for contact in contacts {
+            try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
         }
     }
 }

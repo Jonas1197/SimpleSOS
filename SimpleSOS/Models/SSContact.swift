@@ -17,15 +17,16 @@ final class SSContact: Codable {
     init(fullName: String, phoneNumber: String) {
         self.fullName    = fullName
         self.phoneNumber = phoneNumber
+        
+        try? Archiver(directory: .contact).put(self, forKey: phoneNumber)
     }
     
     init() {
-        try? Archiver(directory: .contact).removeAll()
         
-        fullName = ""
+        fullName    = ""
         phoneNumber = SettingsCell.newCellIdentifier
         
-        try? Archiver(directory: .contact).put(self, forKey: phoneNumber)
+        //try? Archiver(directory: .contact).put(self, forKey: phoneNumber)
     }
     
     func encode(to encoder: Encoder) throws {

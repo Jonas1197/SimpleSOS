@@ -21,19 +21,12 @@ final class SosVC: UIViewController, Storyboarded {
     
     private var togglesView:     TogglesView     = .init()
     
-    var contacts: [SSContact] = Archiver.retrieveContacts()
-    
     
     //MARK: - Main
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-    }
-
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
     }
     
     
@@ -71,22 +64,6 @@ final class SosVC: UIViewController, Storyboarded {
             togglesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             togglesView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
-        
-        if contacts.isEmpty {
-            togglesView.contacts?.append(.init())
-        } else {
-            togglesView.contacts = contacts
-        }
-        
-        togglesView.configure()
-        NotificationCenter.addDefaultObserver(for: self, withNotificationName: Notification.updateToggles, and: #selector(updateToggles))
-        
-    }
-    
-    @objc private func updateToggles() {
-        contacts = Archiver.retrieveContacts()
-        togglesView.contacts = contacts
-        togglesView.configure()
     }
     
     private func callNumber(phoneNumber: String) {
@@ -106,10 +83,18 @@ extension SosVC: MainTitleLabelDelegate {
 }
 
 extension SosVC: EmergencyButtonDelegate {
+    
     func didRequestEmergencyCall() {
         print("didRequestEmergencyCall")
         if let phoneNumber = contact?.phoneNumber {
+            emergencyButton.prepareForCall()
             callNumber(phoneNumber: phoneNumber)
+            
+        } else {
+            let alert = UIAlertController(title: "Wait!", message: "You have to select an emergency contact first.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
         }
     }
     
