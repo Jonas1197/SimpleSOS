@@ -76,6 +76,22 @@ extension UIStackView {
     }
 }
 
+extension UIViewController {
+    
+    func showAlert(with title: String, _ content: String, _ doneTitle: String, _ cancelTitle: String? = nil, _ cancelFunc: ((UIAlertAction) -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: content, preferredStyle: .alert)
+        let doneAction = UIAlertAction(title: doneTitle, style: .cancel, handler: nil)
+        alert.addAction(doneAction)
+        
+        if let cancelTitle = cancelTitle, let cancelFunc = cancelFunc {
+            let cancelAction = UIAlertAction(title: cancelTitle, style: .cancel, handler: cancelFunc)
+            alert.addAction(cancelAction)
+        }
+        
+        present(alert, animated: true, completion: nil)
+    }
+}
+
 
 
 //MARK: - UIButton

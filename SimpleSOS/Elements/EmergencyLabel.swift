@@ -17,17 +17,25 @@ final class EmergencyLabel: UIView {
     
     public var emergencyMode: Bool = false {
         didSet {
-            emergencyMode ? (emergencyLabel.text = "SOS") : nil
+            if emergencyMode{
+                emergencyLabel.text = "SOS"
+                tintColor           = .darkRed
+            } else {
+                emergencyLabel.text             = "Press here"
+                emergencyLabel.textColor        = .white
+                firstWhiteLine.backgroundColor  = .white
+                secondWhiteLine.backgroundColor = .white
+            }
         }
     }
     
     public override var tintColor: UIColor! {
         didSet {
             if tintColor == .darkRed {
-                
                 emergencyLabel.textColor = tintColor
                 firstWhiteLine.backgroundColor  = .white
                 secondWhiteLine.backgroundColor = .white
+                
             } else if tintColor == .white {
                 emergencyLabel.textColor = tintColor
                 firstWhiteLine.backgroundColor  = .darkRed

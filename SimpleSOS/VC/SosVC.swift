@@ -83,18 +83,13 @@ extension SosVC: MainTitleLabelDelegate {
 }
 
 extension SosVC: EmergencyButtonDelegate {
-    
     func didRequestEmergencyCall() {
         print("didRequestEmergencyCall")
         if let phoneNumber = contact?.phoneNumber {
             emergencyButton.prepareForCall()
             callNumber(phoneNumber: phoneNumber)
-            
         } else {
-            let alert = UIAlertController(title: "Wait!", message: "You have to select an emergency contact first.", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-            alert.addAction(action)
-            present(alert, animated: true, completion: nil)
+            showAlert(with: "Wait!", "You have to select an emergency contact first.", "Ok")
         }
     }
     
@@ -110,6 +105,6 @@ extension SosVC: EmergencyButtonDelegate {
  
 extension SosVC: TogglesViewDelegate {
     func didToggleContact(contact: SSContact) {
-        self.contact = contact
+        self.contact = contact.isSelected ? contact : nil
     }
 }

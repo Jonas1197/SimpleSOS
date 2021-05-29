@@ -19,6 +19,8 @@ class EmergencyButton: UIView {
 
     var delegate: EmergencyButtonDelegate?
     
+    var isTapped = false
+    
     private var guidanceLabel: UILabel = {
         let label       = UILabel()
         label.text      = "In case of an emergency tap below"
@@ -202,6 +204,18 @@ class EmergencyButton: UIView {
             self.outerCircle.layer.shadowOpacity = 0
             
         }, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            UIView.animate(withDuration: 0.6, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: { [weak self] in
+                guard let self = self else { return }
+                
+                self.innerCircle.backgroundColor = .softRed
+                self.outerCircle.backgroundColor = .white
+                self.emergencyLabel.emergencyMode = false
+                
+                
+            }, completion: nil)
+        }
     }
     
     func prepareForCall() {
@@ -212,6 +226,7 @@ class EmergencyButton: UIView {
     
     //MARK: - Objc
     @objc private func emergencyButtonTapped() {
+        isTapped = true
         delegate?.didRequestEmergencyCall()
     }
     

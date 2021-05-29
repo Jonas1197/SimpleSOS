@@ -84,6 +84,9 @@ class TogglesView: UIView {
             rowTwoStacks.append(vstack)
             rowTowhstack.addArrangedSubview(vstack)
         }
+        
+        contact.isSelected ? (toggle.isOn = true) : (toggle.isOn = false)
+        
     }
     
     private func configure() {
@@ -97,7 +100,7 @@ class TogglesView: UIView {
         rowOneStacks.removeAll()
         rowTwoStacks.removeAll()
         
-        for contact in contacts where (contact.phoneNumber != SettingsCell.newCellIdentifier && contact.isSelected) {
+        for contact in contacts where (contact.phoneNumber != SettingsCell.newCellIdentifier) {
             add(toggeWithContact: contact)
         }
     }
@@ -143,9 +146,13 @@ class TogglesView: UIView {
         for toggle in toggles {
             if toggle.switch != sender && toggle.switch.isOn {
                 toggle.switch.setOn(false, animated: true)
+                
             } else if toggle.switch == sender {
-                delegate?.didToggleContact(contact: toggle.contact)
+                toggle.contact.isSelected = sender.isOn
             }
+            
+            delegate?.didToggleContact(contact: toggle.contact)
+            try? Archiver(directory: .selectedContact).put(toggle.contact, forKey: toggle.contact.phoneNumber)
         }
     }
 }
