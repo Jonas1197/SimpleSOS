@@ -7,9 +7,9 @@
 
 import UIKit
 
-public let maxToggles = 6
+public let maxToggles        = 6
 public let maxElementsPerRow = 3
-public let maxRows = 2
+public let maxRows           = 2
 
 protocol TogglesViewDelegate: AnyObject {
     func didToggleContact(contact: SSContact) -> Void
@@ -19,7 +19,7 @@ class TogglesView: UIView {
 
     weak var delegate: TogglesViewDelegate?
     
-    private var contacts: [SSContact] = Archiver.retrieveContacts() {
+    private var contacts: [SSContact] = Archiver.retrieveContacts(of: .selectedContact) {
         didSet {
             configure()
         }
@@ -90,8 +90,13 @@ class TogglesView: UIView {
         vstacks.removeAll()
         toggles.removeAll()
         labels.removeAll()
+        
+        rowOnehstack.removeViews()
+        rowTowhstack.removeViews()
+        
         rowOneStacks.removeAll()
         rowTwoStacks.removeAll()
+        
         for contact in contacts where (contact.phoneNumber != SettingsCell.newCellIdentifier && contact.isSelected) {
             add(toggeWithContact: contact)
         }
@@ -107,7 +112,7 @@ class TogglesView: UIView {
     }
     
     @objc private func updateToggles() {
-        contacts = Archiver.retrieveContacts()
+        contacts = Archiver.retrieveContacts(of: .selectedContact)
     }
     
     private func configureMainTitleLabel() {

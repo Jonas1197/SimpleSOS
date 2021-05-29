@@ -7,11 +7,16 @@
 
 import Foundation
 
+enum ContactType {
+    case settingsContact, selectedContact
+}
+
 final class Archiver {
+   
     
     enum Directory: String {
         /// Variable.
-        case contact
+        case contact, selectedContact
         
         fileprivate var directoryURL: URL {
             FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(rawValue)
@@ -119,14 +124,16 @@ final class Archiver {
 
 
 extension Archiver {
-    public static func retrieveContacts() -> [SSContact] {
-        if let contacts = try? Archiver(directory: .contact).all(SSContact.self) {
+    public static func retrieveContacts(of type: ContactType) -> [SSContact] {
+        let contactType = type == .settingsContact ? Directory.contact : Directory.selectedContact
+        if let contacts = try? Archiver(directory: contactType).all(SSContact.self) {
             return contacts
         } else {
             print("Failed to fetch contacts or it might be nil.")
             return [SSContact]()
         }
     }
+
     
     public static func saveContacts(_ contacts: [SSContact]) {
         for contact in contacts {

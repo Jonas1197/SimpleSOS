@@ -14,11 +14,7 @@ class SettingsVC: UIViewController, Storyboarded {
     
     weak var coordinator: MainCoordinator?
     
-    var contacts: [SSContact]! {
-        didSet {
-            //tableView.reloadData()
-        }
-    }
+    var contacts: [SSContact]!
     
     private let mainTitle     = MainTitleLabel()
     
@@ -50,7 +46,7 @@ class SettingsVC: UIViewController, Storyboarded {
     }
     
     private func retrieveContacts() {
-        contacts = Archiver.retrieveContacts()
+        contacts = Archiver.retrieveContacts(of: .settingsContact)
         contacts.append(.init())
     }
     
@@ -128,12 +124,10 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             
-            contacts.remove(at: indexPath.row)
-            
-            self.tableView.reloadData()
-            
             try? Archiver(directory: .contact).deleteItem(forKey: contacts[indexPath.row].phoneNumber)
-            
+            try? Archiver(directory: .selectedContact).deleteItem(forKey: contacts[indexPath.row].phoneNumber)
+            contacts.remove(at: indexPath.row)
+            self.tableView.reloadData()
             NotificationCenter.post(to: Notification.updateToggles)
         }
     }
@@ -176,24 +170,9 @@ extension SettingsVC: CNContactPickerDelegate {
         
         self.contacts.insert(contact, at: 0)
         
-        saveNewContacts()
+        try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
         
         tableView.reloadData()
-    
-        NotificationCenter.post(to: Notification.updateToggles)
-    }
-    
-    private func saveNewContacts() {
-        var forSaving = [SSContact]()
-        
-        //try? Archiver(directory: .contact).removeAll()
-        
-        for contact in contacts where contact.phoneNumber != SettingsCell.newCellIdentifier {
-            forSaving.append(contact)
-        }
-        
-        
-        Archiver.saveContacts(forSaving)
     }
     
     func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
@@ -212,6 +191,13 @@ extension SettingsVC: SettingsCellDelegate {
         }
     
         try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
+        
+        if contact.isSelected {
+            try? Archiver(directory: .selectedContact).put(contact, forKey: contact.phoneNumber)
+        } else {
+            try? Archiver(directory: .selectedContact).deleteItem(forKey: contact.phoneNumber)
+        }
+        
         NotificationCenter.post(to: Notification.updateToggles)
     }
 }

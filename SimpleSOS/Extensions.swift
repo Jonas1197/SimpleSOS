@@ -68,6 +68,12 @@ extension UIStackView {
             addArrangedSubview($0)
         }
     }
+    
+    func removeViews() {
+        for view in self.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+    }
 }
 
 

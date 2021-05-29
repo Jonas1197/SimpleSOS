@@ -77,7 +77,7 @@ final class SosVC: UIViewController, Storyboarded {
 
 extension SosVC: MainTitleLabelDelegate {
     func shouldPresentEasterEgg() {
-        // not working
+        #warning("add easter egg")
         print("shouldPresentEasterEgg")
     }
 }
