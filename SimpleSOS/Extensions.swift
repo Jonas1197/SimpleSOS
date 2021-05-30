@@ -27,6 +27,17 @@ extension CALayer {
     }
 }
 
+//MARK: - Date
+extension Date {
+    static func DateAndTimeAsString() -> String {
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter.string(from: now)
+    }
+}
+
 
 //MARK: - UIStackView
 extension UIColor {

@@ -19,6 +19,7 @@ class TogglesView: UIView {
 
     weak var delegate: TogglesViewDelegate? {
         didSet {
+            guard let contacts = contacts else { return }
             for contact in contacts {
                 if contact.isSelected {
                     delegate?.didToggleContact(contact: contact)
@@ -28,7 +29,7 @@ class TogglesView: UIView {
         }
     }
     
-    private var contacts: [SSContact] = Archiver.retrieveContacts(of: .selectedContact) {
+    private var contacts: [SSContact]? = Archiver.retrieveContacts(of: .selectedContact) {
         didSet {
             configure()
         }
@@ -109,6 +110,7 @@ class TogglesView: UIView {
         rowOneStacks.removeAll()
         rowTwoStacks.removeAll()
         
+        guard let contacts = contacts else { return }
         for contact in contacts where (contact.phoneNumber != SettingsCell.newCellIdentifier) {
             add(toggeWithContact: contact)
         }

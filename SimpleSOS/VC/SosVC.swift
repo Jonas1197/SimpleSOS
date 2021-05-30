@@ -66,11 +66,14 @@ final class SosVC: UIViewController, Storyboarded {
         ])
     }
     
-    private func callNumber(phoneNumber: String) {
-        print("calling: \(phoneNumber )")
+    private func call(contact: SSContact) {
+        let phoneNumber = contact.phoneNumber
         guard let url = URL(string: "tel://\(phoneNumber)"),
               UIApplication.shared.canOpenURL(url) else { return }
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        UIApplication.shared.open(url, options: [:]) { didMakeCall in
+            let callData = CallData(fullName: contact.fullName, phoneNumber: phoneNumber, time: Date.DateAndTimeAsString())
+            try? Archiver(directory: .callData).put(callData, forKey: phoneNumber)
+        }
     }
 }
 
@@ -85,13 +88,13 @@ extension SosVC: MainTitleLabelDelegate {
 extension SosVC: EmergencyButtonDelegate {
     func didRequestEmergencyCall() {
         print("didRequestEmergencyCall")
-        guard let phoneNumber = contact?.phoneNumber else {
+        guard let contact = contact else {
             showAlert(with: "Wait!", "You have to select an emergency contact first.", "Ok")
             return
         }
         
         emergencyButton.prepareForCall()
-        callNumber(phoneNumber: phoneNumber)
+        call(contact: contact)
     }
     
     func shouldPresentSettings() {

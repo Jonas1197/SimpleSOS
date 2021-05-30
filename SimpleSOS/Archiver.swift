@@ -8,7 +8,7 @@
 import Foundation
 
 enum ContactType {
-    case settingsContact, selectedContact
+    case settingsContact, selectedContact, callData
 }
 
 final class Archiver {
@@ -16,7 +16,7 @@ final class Archiver {
     
     enum Directory: String {
         /// Variable.
-        case contact, selectedContact
+        case contact, selectedContact, callData
         
         fileprivate var directoryURL: URL {
             FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(rawValue)
@@ -124,14 +124,36 @@ final class Archiver {
 
 
 extension Archiver {
-    public static func retrieveContacts(of type: ContactType) -> [SSContact] {
-        let contactType = type == .settingsContact ? Directory.contact : Directory.selectedContact
-        if let contacts = try? Archiver(directory: contactType).all(SSContact.self) {
-            return contacts
-        } else {
-            print("Failed to fetch contacts or it might be nil.")
-            return [SSContact]()
+    public static func retrieveContacts<T>(of type: ContactType) -> [T]? {
+        
+        var data = [T]()
+        
+        switch type {
+        case .settingsContact:
+            guard let contacts = try? Archiver(directory: .contact).all(SSContact.self) else { return nil }
+            data = contacts as! [T]
+            break
+            
+        case .selectedContact:
+            guard let contacts = try? Archiver(directory: .selectedContact).all(SSContact.self) else { return nil }
+            data = contacts as! [T]
+            break
+            
+        case .callData:
+            guard let callData = try? Archiver(directory: .callData).all(CallData.self) else { return nil }
+            data = callData as! [T]
+            break
         }
+        
+        return data
+        
+//        let contactType = type == .settingsContact ? Directory.contact : Directory.selectedContact
+//        if let contacts = try? Archiver(directory: contactType).all(SSContact.self) {
+//            return contacts
+//        } else {
+//            print("Failed to fetch contacts or it might be nil.")
+//            return [SSContact]()
+//        }
     }
 
     

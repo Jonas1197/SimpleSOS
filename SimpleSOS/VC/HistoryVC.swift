@@ -11,7 +11,9 @@ class HistoryVC: UIViewController, Storyboarded {
 
     weak var coordinator: MainCoordinator?
     
-    var data: [CallData] = [
+    var data: [CallData]? = Archiver.retrieveContacts(of: .callData) 
+    
+    var testData: [CallData] = [
         .init(fullName: "Petra", phoneNumber: "052682072", time: "05:24"),
         .init(fullName: "Joel", phoneNumber: "4234324", time: "12:15"),
         .init(fullName: "Foonai", phoneNumber: "42432546", time: "03:24"),
@@ -69,19 +71,25 @@ class HistoryVC: UIViewController, Storyboarded {
 extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return testData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.cellIdentifier) as? HistoryCell else { return .init() }
         
-        cell.data = data[indexPath.row]
+        cell.data = testData[indexPath.row]
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.frame.width / 5
     }
 }
 
 
 extension HistoryVC: HistoryCellDelegate {
-    
+    func cellTapped() {
+        
+    }
 }

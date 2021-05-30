@@ -8,13 +8,7 @@
 import UIKit
 
 protocol HistoryCellDelegate: AnyObject {
-    //
-}
-
-struct CallData {
-    var fullName: String
-    var phoneNumber: String
-    var time: String
+    func cellTapped()
 }
 
 class HistoryCell: UITableViewCell {
@@ -55,6 +49,10 @@ class HistoryCell: UITableViewCell {
         backgroundColor        = .clear
         nameLabel?.text        = data.fullName
         phoneNumberLabel?.text = data.phoneNumber
-        timeLabel?.text        = data.time
+        timeLabel?.text        = "at \(data.time)"
+        
+        nameLabel?.textColor        = .white
+        phoneNumberLabel?.textColor = .white
+        timeLabel?.textColor        = .white
     }
 }

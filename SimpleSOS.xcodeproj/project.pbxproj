@@ -14,6 +14,8 @@
 		7580378126624425005D3E82 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580377F26624425005D3E82 /* HistoryCell.swift */; };
 		7580378226624425005D3E82 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7580378026624425005D3E82 /* HistoryCell.xib */; };
 		758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A5A7B2652537B00F05C68 /* Archiver.swift */; };
+		75A38FF82663906D0051A537 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A38FF72663906D0051A537 /* AboutVC.swift */; };
+		75A38FFA266396B20051A537 /* CallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A38FF9266396B20051A537 /* CallData.swift */; };
 		75C688BD264971B000500C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BC264971B000500C61 /* AppDelegate.swift */; };
 		75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BE264971B000500C61 /* SceneDelegate.swift */; };
 		75C688C4264971B000500C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C688C2264971B000500C61 /* Main.storyboard */; };
@@ -64,6 +66,8 @@
 		7580377F26624425005D3E82 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		7580378026624425005D3E82 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		758A5A7B2652537B00F05C68 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
+		75A38FF72663906D0051A537 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		75A38FF9266396B20051A537 /* CallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallData.swift; sourceTree = "<group>"; };
 		75C688B9264971B000500C61 /* SimpleSOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C688BC264971B000500C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75C688BE264971B000500C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				75C688EE264974E400500C61 /* SosVC.swift */,
 				75C688F12649750A00500C61 /* SettingsVC.swift */,
 				75C688F32649751B00500C61 /* HistoryVC.swift */,
+				75A38FF72663906D0051A537 /* AboutVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				751FE876264BC97E00541FC9 /* SSContact.swift */,
+				75A38FF9266396B20051A537 /* CallData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,8 +408,10 @@
 				75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */,
 				75C688F22649750A00500C61 /* SettingsVC.swift in Sources */,
 				751FE877264BC97E00541FC9 /* SSContact.swift in Sources */,
+				75A38FF82663906D0051A537 /* AboutVC.swift in Sources */,
 				75C688F62649759100500C61 /* Storyboarded.swift in Sources */,
 				75C688FE26497E0400500C61 /* Constants.swift in Sources */,
+				75A38FFA266396B20051A537 /* CallData.swift in Sources */,
 				751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

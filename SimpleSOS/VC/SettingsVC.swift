@@ -89,6 +89,7 @@ class SettingsVC: UIViewController, Storyboarded {
     
     @objc private func aboutButtonTapped(_ sender: UIButton) {
         print("aboutButtonTapped")
+        coordinator?.about()
     }
 }
 
@@ -118,7 +119,7 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.row == contacts.count - 1 ? false : true
+        return contacts[indexPath.row].phoneNumber == SettingsCell.newCellIdentifier ? false : true
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -193,6 +194,7 @@ extension SettingsVC: SettingsCellDelegate {
         try? Archiver(directory: .contact).put(contact, forKey: contact.phoneNumber)
         
         if contact.isSelected {
+            contact.isSelected = false
             try? Archiver(directory: .selectedContact).put(contact, forKey: contact.phoneNumber)
         } else {
             try? Archiver(directory: .selectedContact).deleteItem(forKey: contact.phoneNumber)

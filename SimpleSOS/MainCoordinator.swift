@@ -36,15 +36,23 @@ class MainCoordinator: Coordinator {
     func settings() {
         let vc = SettingsVC.instantiate()
         vc.coordinator = self
-        var retrievedContacts = Archiver.retrieveContacts(of: .settingsContact)
-        retrievedContacts.append(.init())
-        vc.contacts = retrievedContacts
+        if let retrievedContacts: [SSContact] = Archiver.retrieveContacts(of: .settingsContact) {
+            vc.contacts = retrievedContacts
+            vc.contacts.append(.init())
+        }
         navigationController.present(vc, animated: true, completion: nil)
     }
     
     func history() {
         let vc = HistoryVC.instantiate()
         vc.coordinator = self
+        navigationController.present(vc, animated: true, completion: nil)
+    }
+    
+    func about() {
+        let vc = AboutVC.instantiate()
+        vc.coordinator = self
+        navigationController.dismiss(animated: true, completion: nil)
         navigationController.present(vc, animated: true, completion: nil)
     }
 }
