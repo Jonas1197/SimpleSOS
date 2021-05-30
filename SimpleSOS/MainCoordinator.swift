@@ -39,6 +39,9 @@ class MainCoordinator: Coordinator {
         if let retrievedContacts: [SSContact] = Archiver.retrieveContacts(of: .settingsContact) {
             vc.contacts = retrievedContacts
             vc.contacts.append(.init())
+        } else {
+            vc.contacts = .init()
+            vc.contacts.append(.init())
         }
         navigationController.present(vc, animated: true, completion: nil)
     }

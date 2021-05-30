@@ -201,5 +201,6 @@ extension SettingsVC: SettingsCellDelegate {
         }
         
         NotificationCenter.post(to: Notification.updateToggles)
+        NotificationCenter.post(to: Notification.updateEBC)
     }
 }

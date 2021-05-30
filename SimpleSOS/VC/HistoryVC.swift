@@ -71,13 +71,14 @@ class HistoryVC: UIViewController, Storyboarded {
 extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testData.count
+        guard let data = data else { return 0}
+        return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.cellIdentifier) as? HistoryCell else { return .init() }
-        
-        cell.data = testData[indexPath.row]
+        guard let data = data else { return .init() }
+        cell.data = data[indexPath.row]
         cell.delegate = self
         return cell
     }

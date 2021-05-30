@@ -37,6 +37,11 @@ final class SosVC: UIViewController, Storyboarded {
         configureMainTitle()
         configureEmergencyButton()
         configureTogglesView()
+        addEBCListener()
+    }
+    
+    private func addEBCListener() {
+        NotificationCenter.addDefaultObserver(for: self, withNotificationName: Notification.updateEBC, and: #selector(clearEBContact))
     }
     
     private func configureMainTitle() {
@@ -74,6 +79,10 @@ final class SosVC: UIViewController, Storyboarded {
             let callData = CallData(fullName: contact.fullName, phoneNumber: phoneNumber, time: Date.DateAndTimeAsString())
             try? Archiver(directory: .callData).put(callData, forKey: phoneNumber)
         }
+    }
+    
+    @objc private func clearEBContact() {
+        contact = nil
     }
 }
 
