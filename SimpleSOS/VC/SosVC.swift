@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WidgetKit
 
 final class SosVC: UIViewController, Storyboarded {
     
@@ -118,6 +119,16 @@ extension SosVC: EmergencyButtonDelegate {
  
 extension SosVC: TogglesViewDelegate {
     func didToggleContact(contact: SSContact) {
+    
         self.contact = contact.isSelected ? contact : nil
+        
+        guard let contact = self.contact else {
+            UserDefaults.clear()
+            return
+        }
+        
+        UserDefaults.save(contact)
+        WidgetCenter.shared.reloadAllTimelines()
     }
 }
+

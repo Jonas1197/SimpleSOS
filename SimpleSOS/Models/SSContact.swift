@@ -49,3 +49,28 @@ final class SSContact: Codable {
     }
     
 }
+
+
+//MARK: - UserDefaults
+extension UserDefaults {
+    static let group = UserDefaults(suiteName: "group.com.SimpleSOS")!
+    
+    static func save(_ contact: SSContact?) {
+        guard let contact = contact else { return }
+        group.set(contact.fullName, forKey: "fullName")
+        group.set(contact.phoneNumber, forKey: "phoneNumber")
+        
+    }
+    
+    static func getContact() -> SSContact? {
+        guard let fullName = group.object(forKey: "fullName") as? String else { return nil }
+        guard let phoneNumber = group.object(forKey: "phoneNumber") as? String else { return nil }
+        
+        return .init(fullName: fullName, phoneNumber: phoneNumber)
+    }
+    
+    static func clear() {
+        group.removeObject(forKey: "fullName")
+        group.removeObject(forKey: "phoneNumber")
+    }
+}

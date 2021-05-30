@@ -10,7 +10,6 @@
 		751FE86F264ABA5800541FC9 /* TogglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE86E264ABA5700541FC9 /* TogglesView.swift */; };
 		751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE872264BC32600541FC9 /* SettingsCell.swift */; };
 		751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751FE873264BC32600541FC9 /* SettingsCell.xib */; };
-		751FE877264BC97E00541FC9 /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
 		7580378126624425005D3E82 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580377F26624425005D3E82 /* HistoryCell.swift */; };
 		7580378226624425005D3E82 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7580378026624425005D3E82 /* HistoryCell.xib */; };
 		758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A5A7B2652537B00F05C68 /* Archiver.swift */; };
@@ -54,6 +53,7 @@
 		75C6890D264982A000500C61 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75C68907264982A000500C61 /* OpenSans-SemiBold.ttf */; };
 		75C6890F26498C3600500C61 /* EmergencyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6890E26498C3600500C61 /* EmergencyLabel.swift */; };
 		75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6891026498FA500500C61 /* MainTitleLabel.swift */; };
+		75F73C0A26641E2300DF94BE /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -551,9 +551,9 @@
 				75C6890026497E2700500C61 /* Extensions.swift in Sources */,
 				75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */,
 				75C688F22649750A00500C61 /* SettingsVC.swift in Sources */,
-				751FE877264BC97E00541FC9 /* SSContact.swift in Sources */,
 				75A38FF82663906D0051A537 /* AboutVC.swift in Sources */,
 				75C688F62649759100500C61 /* Storyboarded.swift in Sources */,
+				75F73C0A26641E2300DF94BE /* SSContact.swift in Sources */,
 				75C688FE26497E0400500C61 /* Constants.swift in Sources */,
 				75A38FFA266396B20051A537 /* CallData.swift in Sources */,
 				751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */,
@@ -622,6 +622,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SOSWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,7 +634,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -643,6 +644,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SOSWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -654,7 +656,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

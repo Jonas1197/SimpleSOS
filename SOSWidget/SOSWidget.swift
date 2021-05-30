@@ -45,6 +45,8 @@ struct SimpleEntry: TimelineEntry {
 struct SOSWidgetEntryView : View {
     var entry: Provider.Entry
 
+    private static let deeplinkURL: URL = URL(string: "widget-deeplink://")!
+    
     var body: some View {
         //Text(entry.date, style: .time)
         //foregroundColor(.init(.softRed))
@@ -72,7 +74,10 @@ struct SOSWidgetEntryView : View {
                     .frame(width: 94, height: 7, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     .foregroundColor(.white)
             }
-        })
+        }
+        
+        )
+        .widgetURL(SOSWidgetEntryView.deeplinkURL)
     }
 }
 

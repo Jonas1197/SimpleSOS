@@ -167,7 +167,7 @@ extension UIView {
     func getEstimatedFrame(forText text: String) -> CGRect {
         let size = CGSize(width: frame.width / 2, height: 1000)
         let estimatedFrame = NSString(string: text).boundingRect(with: size, options:  [.usesFontLeading, .usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)], context: nil)
-        
+
         return estimatedFrame
     }
 }
@@ -182,3 +182,5 @@ extension NotificationCenter {
         self.default.post(name: NSNotification.Name(notificationName), object: nil, userInfo: nil)
     }
 }
+
+
