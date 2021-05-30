@@ -16,7 +16,7 @@ class SettingsVC: UIViewController, Storyboarded {
     
     var contacts: [SSContact]!
     
-    private let mainTitle     = MainTitleLabel()
+    private let mainTitle = MainTitleLabel()
     
     private var aboutButton: UIButton = {
         let button              = UIButton()

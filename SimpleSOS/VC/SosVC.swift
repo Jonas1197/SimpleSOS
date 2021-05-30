@@ -20,7 +20,7 @@ final class SosVC: UIViewController, Storyboarded {
     private var emergencyButton: EmergencyButton = .init()
     
     private var togglesView:     TogglesView     = .init()
-    
+
     
     //MARK: - Main
     
@@ -85,12 +85,13 @@ extension SosVC: MainTitleLabelDelegate {
 extension SosVC: EmergencyButtonDelegate {
     func didRequestEmergencyCall() {
         print("didRequestEmergencyCall")
-        if let phoneNumber = contact?.phoneNumber {
-            emergencyButton.prepareForCall()
-            callNumber(phoneNumber: phoneNumber)
-        } else {
+        guard let phoneNumber = contact?.phoneNumber else {
             showAlert(with: "Wait!", "You have to select an emergency contact first.", "Ok")
+            return
         }
+        
+        emergencyButton.prepareForCall()
+        callNumber(phoneNumber: phoneNumber)
     }
     
     func shouldPresentSettings() {

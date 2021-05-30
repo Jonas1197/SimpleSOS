@@ -17,7 +17,16 @@ protocol TogglesViewDelegate: AnyObject {
 
 class TogglesView: UIView {
 
-    weak var delegate: TogglesViewDelegate?
+    weak var delegate: TogglesViewDelegate? {
+        didSet {
+            for contact in contacts {
+                if contact.isSelected {
+                    delegate?.didToggleContact(contact: contact)
+                    break
+                }
+            }
+        }
+    }
     
     private var contacts: [SSContact] = Archiver.retrieveContacts(of: .selectedContact) {
         didSet {
@@ -146,12 +155,13 @@ class TogglesView: UIView {
         for toggle in toggles {
             if toggle.switch != sender && toggle.switch.isOn {
                 toggle.switch.setOn(false, animated: true)
+                toggle.contact.isSelected = false
                 
             } else if toggle.switch == sender {
                 toggle.contact.isSelected = sender.isOn
+                delegate?.didToggleContact(contact: toggle.contact)
             }
             
-            delegate?.didToggleContact(contact: toggle.contact)
             try? Archiver(directory: .selectedContact).put(toggle.contact, forKey: toggle.contact.phoneNumber)
         }
     }

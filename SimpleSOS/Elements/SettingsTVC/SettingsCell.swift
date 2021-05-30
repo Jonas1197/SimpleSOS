@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol SettingsCellDelegate {
+protocol SettingsCellDelegate: AnyObject {
     func settingsCellHasChangedToggleStatus(for contact: SSContact) -> Void
 }
 
 class SettingsCell: UITableViewCell {
 
-    public var delegate: SettingsCellDelegate?
+    weak var delegate: SettingsCellDelegate?
     
     public static let newCellIdentifier = "addCell"
     
@@ -104,5 +104,4 @@ class SettingsCell: UITableViewCell {
         contact.isSelected.toggle()
         delegate?.settingsCellHasChangedToggleStatus(for: contact)
     }
-    
 }

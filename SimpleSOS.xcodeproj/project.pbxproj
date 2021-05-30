@@ -11,6 +11,8 @@
 		751FE874264BC32600541FC9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE872264BC32600541FC9 /* SettingsCell.swift */; };
 		751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751FE873264BC32600541FC9 /* SettingsCell.xib */; };
 		751FE877264BC97E00541FC9 /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
+		7580378126624425005D3E82 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580377F26624425005D3E82 /* HistoryCell.swift */; };
+		7580378226624425005D3E82 /* HistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7580378026624425005D3E82 /* HistoryCell.xib */; };
 		758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A5A7B2652537B00F05C68 /* Archiver.swift */; };
 		75C688BD264971B000500C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BC264971B000500C61 /* AppDelegate.swift */; };
 		75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BE264971B000500C61 /* SceneDelegate.swift */; };
@@ -59,6 +61,8 @@
 		751FE872264BC32600541FC9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		751FE873264BC32600541FC9 /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		751FE876264BC97E00541FC9 /* SSContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSContact.swift; sourceTree = "<group>"; };
+		7580377F26624425005D3E82 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		7580378026624425005D3E82 /* HistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryCell.xib; sourceTree = "<group>"; };
 		758A5A7B2652537B00F05C68 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
 		75C688B9264971B000500C61 /* SimpleSOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C688BC264971B000500C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		758037832662442F005D3E82 /* SettingsTVC */ = {
+			isa = PBXGroup;
+			children = (
+				751FE872264BC32600541FC9 /* SettingsCell.swift */,
+				751FE873264BC32600541FC9 /* SettingsCell.xib */,
+			);
+			path = SettingsTVC;
+			sourceTree = "<group>";
+		};
+		7580378426624452005D3E82 /* HistoryTVC */ = {
+			isa = PBXGroup;
+			children = (
+				7580377F26624425005D3E82 /* HistoryCell.swift */,
+				7580378026624425005D3E82 /* HistoryCell.xib */,
+			);
+			path = HistoryTVC;
+			sourceTree = "<group>";
+		};
 		75C688B0264971AF00500C61 = {
 			isa = PBXGroup;
 			children = (
@@ -209,8 +231,8 @@
 				75C6890E26498C3600500C61 /* EmergencyLabel.swift */,
 				75C6891026498FA500500C61 /* MainTitleLabel.swift */,
 				751FE86E264ABA5700541FC9 /* TogglesView.swift */,
-				751FE872264BC32600541FC9 /* SettingsCell.swift */,
-				751FE873264BC32600541FC9 /* SettingsCell.xib */,
+				758037832662442F005D3E82 /* SettingsTVC */,
+				7580378426624452005D3E82 /* HistoryTVC */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -334,6 +356,7 @@
 				75C688C9264971B500500C61 /* LaunchScreen.storyboard in Resources */,
 				75C6890D264982A000500C61 /* OpenSans-SemiBold.ttf in Resources */,
 				75C68908264982A000500C61 /* OpenSans-Italic.ttf in Resources */,
+				7580378226624425005D3E82 /* HistoryCell.xib in Resources */,
 				75C6890C264982A000500C61 /* OpenSans-Bold.ttf in Resources */,
 				751FE875264BC32600541FC9 /* SettingsCell.xib in Resources */,
 				75C688C6264971B500500C61 /* Assets.xcassets in Resources */,
@@ -371,6 +394,7 @@
 				75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */,
 				75C688F42649751B00500C61 /* HistoryVC.swift in Sources */,
 				75C688ED2649741600500C61 /* MainCoordinator.swift in Sources */,
+				7580378126624425005D3E82 /* HistoryCell.swift in Sources */,
 				75C688FC2649797B00500C61 /* EmergencyButton.swift in Sources */,
 				758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */,
 				75C688BD264971B000500C61 /* AppDelegate.swift in Sources */,
