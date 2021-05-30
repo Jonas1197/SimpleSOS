@@ -16,6 +16,21 @@
 		758A5A7C2652537B00F05C68 /* Archiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A5A7B2652537B00F05C68 /* Archiver.swift */; };
 		75A38FF82663906D0051A537 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A38FF72663906D0051A537 /* AboutVC.swift */; };
 		75A38FFA266396B20051A537 /* CallData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A38FF9266396B20051A537 /* CallData.swift */; };
+		75A390022663E88A0051A537 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A390012663E88A0051A537 /* WidgetKit.framework */; };
+		75A390042663E88A0051A537 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75A390032663E88A0051A537 /* SwiftUI.framework */; };
+		75A390072663E88A0051A537 /* SOSWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A390062663E88A0051A537 /* SOSWidget.swift */; };
+		75A3900A2663E88E0051A537 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75A390092663E88E0051A537 /* Assets.xcassets */; };
+		75A3900C2663E88E0051A537 /* SOSWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 75A390082663E88A0051A537 /* SOSWidget.intentdefinition */; };
+		75A3900D2663E88E0051A537 /* SOSWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 75A390082663E88A0051A537 /* SOSWidget.intentdefinition */; };
+		75A390102663E88E0051A537 /* SOSWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A38FFF2663E88A0051A537 /* SOSWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75A390152663EAAA0051A537 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688FF26497E2700500C61 /* Extensions.swift */; };
+		75A390172663EAB50051A537 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688FD26497E0400500C61 /* Constants.swift */; };
+		75A3901F2663ED190051A537 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A390192663ED190051A537 /* OpenSans-BoldItalic.ttf */; };
+		75A390202663ED190051A537 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3901A2663ED190051A537 /* OpenSans-SemiBold.ttf */; };
+		75A390212663ED190051A537 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3901B2663ED190051A537 /* OpenSans-Bold.ttf */; };
+		75A390222663ED190051A537 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3901C2663ED190051A537 /* OpenSans-Light.ttf */; };
+		75A390232663ED190051A537 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3901D2663ED190051A537 /* OpenSans-Regular.ttf */; };
+		75A390242663ED190051A537 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75A3901E2663ED190051A537 /* OpenSans-Italic.ttf */; };
 		75C688BD264971B000500C61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BC264971B000500C61 /* AppDelegate.swift */; };
 		75C688BF264971B000500C61 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C688BE264971B000500C61 /* SceneDelegate.swift */; };
 		75C688C4264971B000500C61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C688C2264971B000500C61 /* Main.storyboard */; };
@@ -42,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		75A3900E2663E88E0051A537 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 75C688B1264971AF00500C61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 75A38FFE2663E88A0051A537;
+			remoteInfo = SOSWidgetExtension;
+		};
 		75C688D0264971B500500C61 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75C688B1264971AF00500C61 /* Project object */;
@@ -58,6 +80,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		75A390142663E88E0051A537 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				75A390102663E88E0051A537 /* SOSWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		751FE86E264ABA5700541FC9 /* TogglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TogglesView.swift; sourceTree = "<group>"; };
 		751FE872264BC32600541FC9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -68,6 +104,19 @@
 		758A5A7B2652537B00F05C68 /* Archiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archiver.swift; sourceTree = "<group>"; };
 		75A38FF72663906D0051A537 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		75A38FF9266396B20051A537 /* CallData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallData.swift; sourceTree = "<group>"; };
+		75A38FFF2663E88A0051A537 /* SOSWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SOSWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		75A390012663E88A0051A537 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		75A390032663E88A0051A537 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		75A390062663E88A0051A537 /* SOSWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSWidget.swift; sourceTree = "<group>"; };
+		75A390082663E88A0051A537 /* SOSWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = SOSWidget.intentdefinition; sourceTree = "<group>"; };
+		75A390092663E88E0051A537 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		75A3900B2663E88E0051A537 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75A390192663ED190051A537 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "SimpleSOS/Fonts/OpenSans-BoldItalic.ttf"; sourceTree = SOURCE_ROOT; };
+		75A3901A2663ED190051A537 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "SimpleSOS/Fonts/OpenSans-SemiBold.ttf"; sourceTree = SOURCE_ROOT; };
+		75A3901B2663ED190051A537 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "SimpleSOS/Fonts/OpenSans-Bold.ttf"; sourceTree = SOURCE_ROOT; };
+		75A3901C2663ED190051A537 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Light.ttf"; path = "SimpleSOS/Fonts/OpenSans-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		75A3901D2663ED190051A537 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "SimpleSOS/Fonts/OpenSans-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		75A3901E2663ED190051A537 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Italic.ttf"; path = "SimpleSOS/Fonts/OpenSans-Italic.ttf"; sourceTree = SOURCE_ROOT; };
 		75C688B9264971B000500C61 /* SimpleSOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C688BC264971B000500C61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75C688BE264971B000500C61 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +149,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		75A38FFC2663E88A0051A537 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A390042663E88A0051A537 /* SwiftUI.framework in Frameworks */,
+				75A390022663E88A0051A537 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75C688B6264971B000500C61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,12 +200,48 @@
 			path = HistoryTVC;
 			sourceTree = "<group>";
 		};
+		75A390002663E88A0051A537 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75A390012663E88A0051A537 /* WidgetKit.framework */,
+				75A390032663E88A0051A537 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75A390052663E88A0051A537 /* SOSWidget */ = {
+			isa = PBXGroup;
+			children = (
+				75A390182663ECFB0051A537 /* Fonts */,
+				75A390062663E88A0051A537 /* SOSWidget.swift */,
+				75A390082663E88A0051A537 /* SOSWidget.intentdefinition */,
+				75A390092663E88E0051A537 /* Assets.xcassets */,
+				75A3900B2663E88E0051A537 /* Info.plist */,
+			);
+			path = SOSWidget;
+			sourceTree = "<group>";
+		};
+		75A390182663ECFB0051A537 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				75A3901B2663ED190051A537 /* OpenSans-Bold.ttf */,
+				75A390192663ED190051A537 /* OpenSans-BoldItalic.ttf */,
+				75A3901E2663ED190051A537 /* OpenSans-Italic.ttf */,
+				75A3901C2663ED190051A537 /* OpenSans-Light.ttf */,
+				75A3901D2663ED190051A537 /* OpenSans-Regular.ttf */,
+				75A3901A2663ED190051A537 /* OpenSans-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		75C688B0264971AF00500C61 = {
 			isa = PBXGroup;
 			children = (
 				75C688BB264971B000500C61 /* SimpleSOS */,
 				75C688D2264971B500500C61 /* SimpleSOSTests */,
 				75C688DD264971B500500C61 /* SimpleSOSUITests */,
+				75A390052663E88A0051A537 /* SOSWidget */,
+				75A390002663E88A0051A537 /* Frameworks */,
 				75C688BA264971B000500C61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -158,6 +252,7 @@
 				75C688B9264971B000500C61 /* SimpleSOS.app */,
 				75C688CF264971B500500C61 /* SimpleSOSTests.xctest */,
 				75C688DA264971B500500C61 /* SimpleSOSUITests.xctest */,
+				75A38FFF2663E88A0051A537 /* SOSWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -259,6 +354,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		75A38FFE2663E88A0051A537 /* SOSWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 75A390112663E88E0051A537 /* Build configuration list for PBXNativeTarget "SOSWidgetExtension" */;
+			buildPhases = (
+				75A38FFB2663E88A0051A537 /* Sources */,
+				75A38FFC2663E88A0051A537 /* Frameworks */,
+				75A38FFD2663E88A0051A537 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SOSWidgetExtension;
+			productName = SOSWidgetExtension;
+			productReference = 75A38FFF2663E88A0051A537 /* SOSWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		75C688B8264971B000500C61 /* SimpleSOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75C688E3264971B500500C61 /* Build configuration list for PBXNativeTarget "SimpleSOS" */;
@@ -266,10 +378,12 @@
 				75C688B5264971B000500C61 /* Sources */,
 				75C688B6264971B000500C61 /* Frameworks */,
 				75C688B7264971B000500C61 /* Resources */,
+				75A390142663E88E0051A537 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				75A3900F2663E88E0051A537 /* PBXTargetDependency */,
 			);
 			name = SimpleSOS;
 			productName = SimpleSOS;
@@ -321,6 +435,9 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					75A38FFE2663E88A0051A537 = {
+						CreatedOnToolsVersion = 12.5;
+					};
 					75C688B8264971B000500C61 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -350,11 +467,26 @@
 				75C688B8264971B000500C61 /* SimpleSOS */,
 				75C688CE264971B500500C61 /* SimpleSOSTests */,
 				75C688D9264971B500500C61 /* SimpleSOSUITests */,
+				75A38FFE2663E88A0051A537 /* SOSWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		75A38FFD2663E88A0051A537 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A3901F2663ED190051A537 /* OpenSans-BoldItalic.ttf in Resources */,
+				75A390202663ED190051A537 /* OpenSans-SemiBold.ttf in Resources */,
+				75A390212663ED190051A537 /* OpenSans-Bold.ttf in Resources */,
+				75A390222663ED190051A537 /* OpenSans-Light.ttf in Resources */,
+				75A390232663ED190051A537 /* OpenSans-Regular.ttf in Resources */,
+				75A3900A2663E88E0051A537 /* Assets.xcassets in Resources */,
+				75A390242663ED190051A537 /* OpenSans-Italic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75C688B7264971B000500C61 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,6 +522,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		75A38FFB2663E88A0051A537 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A390172663EAB50051A537 /* Constants.swift in Sources */,
+				75A3900C2663E88E0051A537 /* SOSWidget.intentdefinition in Sources */,
+				75A390152663EAAA0051A537 /* Extensions.swift in Sources */,
+				75A390072663E88A0051A537 /* SOSWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75C688B5264971B000500C61 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,6 +541,7 @@
 				751FE86F264ABA5800541FC9 /* TogglesView.swift in Sources */,
 				75C6890F26498C3600500C61 /* EmergencyLabel.swift in Sources */,
 				75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */,
+				75A3900D2663E88E0051A537 /* SOSWidget.intentdefinition in Sources */,
 				75C688F42649751B00500C61 /* HistoryVC.swift in Sources */,
 				75C688ED2649741600500C61 /* MainCoordinator.swift in Sources */,
 				7580378126624425005D3E82 /* HistoryCell.swift in Sources */,
@@ -435,6 +579,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		75A3900F2663E88E0051A537 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 75A38FFE2663E88A0051A537 /* SOSWidgetExtension */;
+			targetProxy = 75A3900E2663E88E0051A537 /* PBXContainerItemProxy */;
+		};
 		75C688D1264971B500500C61 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75C688B8264971B000500C61 /* SimpleSOS */;
@@ -467,6 +616,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		75A390122663E88E0051A537 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SOSWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOS.SOSWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		75A390132663E88E0051A537 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 678L74QEPX;
+				INFOPLIST_FILE = SOSWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jonas.dev.SimpleSOS.SOSWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		75C688E1264971B500500C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -586,10 +777,11 @@
 		75C688E4264971B500500C61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.2;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SimpleSOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -607,10 +799,11 @@
 		75C688E5264971B500500C61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.2;
+				CURRENT_PROJECT_VERSION = 1.1.3;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SimpleSOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -712,6 +905,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		75A390112663E88E0051A537 /* Build configuration list for PBXNativeTarget "SOSWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				75A390122663E88E0051A537 /* Debug */,
+				75A390132663E88E0051A537 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		75C688B4264971AF00500C61 /* Build configuration list for PBXProject "SimpleSOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
