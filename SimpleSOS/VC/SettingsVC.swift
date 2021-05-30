@@ -127,8 +127,11 @@ extension SettingsVC: UITableViewDelegate, UITableViewDataSource {
             
             try? Archiver(directory: .contact).deleteItem(forKey: contacts[indexPath.row].phoneNumber)
             try? Archiver(directory: .selectedContact).deleteItem(forKey: contacts[indexPath.row].phoneNumber)
+            
             contacts.remove(at: indexPath.row)
-            self.tableView.reloadData()
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
             NotificationCenter.post(to: Notification.updateToggles)
         }
     }
@@ -160,14 +163,10 @@ extension SettingsVC: CNContactPickerDelegate {
         
         // user phone number
         let userPhoneNumbers:[CNLabeledValue<CNPhoneNumber>] = contact.phoneNumbers
+        
         let firstPhoneNumber:CNPhoneNumber = userPhoneNumbers[0].value
         
-        // user phone number string
-        let primaryPhoneNumberStr = firstPhoneNumber.stringValue.trimmingCharacters(in: .whitespacesAndNewlines)
-        let spaceless = primaryPhoneNumberStr.filter { $0 != " " }
-        let final = spaceless.filter { $0 != "-" }
-        
-        let contact = SSContact(fullName: userName, phoneNumber: final)
+        let contact = SSContact(fullName: userName, phoneNumber: firstPhoneNumber.stringValue)
         
         self.contacts.insert(contact, at: 0)
         
