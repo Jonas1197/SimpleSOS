@@ -55,7 +55,7 @@ final class SosVC: UIViewController, Storyboarded {
             emergencyButton.topAnchor.constraint(equalTo: mainTitle.bottomAnchor, constant: 15),
             emergencyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             emergencyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            emergencyButton.heightAnchor.constraint(equalToConstant: view.frame.height/2.2)
+            emergencyButton.heightAnchor.constraint(equalToConstant: view.frame.height/1.8)
         ])
         
         emergencyButton.delegate = self
@@ -66,7 +66,7 @@ final class SosVC: UIViewController, Storyboarded {
         view.addSubview(togglesView)
         NSLayoutConstraint.activate([
             togglesView.topAnchor.constraint(equalTo: emergencyButton.bottomAnchor, constant: 50),
-            togglesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+            togglesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             togglesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             togglesView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])

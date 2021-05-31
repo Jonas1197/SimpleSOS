@@ -54,6 +54,7 @@
 		75C6890F26498C3600500C61 /* EmergencyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6890E26498C3600500C61 /* EmergencyLabel.swift */; };
 		75C6891126498FA500500C61 /* MainTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C6891026498FA500500C61 /* MainTitleLabel.swift */; };
 		75F73C0A26641E2300DF94BE /* SSContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751FE876264BC97E00541FC9 /* SSContact.swift */; };
+		75F73C0C2664245500DF94BE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F73C0B2664245500DF94BE /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +147,7 @@
 		75C68907264982A000500C61 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		75C6890E26498C3600500C61 /* EmergencyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyLabel.swift; sourceTree = "<group>"; };
 		75C6891026498FA500500C61 /* MainTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleLabel.swift; sourceTree = "<group>"; };
+		75F73C0B2664245500DF94BE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F73C0C2664245500DF94BE /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +206,7 @@
 		75A390002663E88A0051A537 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75F73C0B2664245500DF94BE /* StoreKit.framework */,
 				75A390012663E88A0051A537 /* WidgetKit.framework */,
 				75A390032663E88A0051A537 /* SwiftUI.framework */,
 			);
@@ -622,7 +626,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SOSWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -644,7 +648,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SOSWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -783,7 +787,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SimpleSOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -805,7 +809,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1.3;
+				CURRENT_PROJECT_VERSION = 1.1.5;
 				DEVELOPMENT_TEAM = 678L74QEPX;
 				INFOPLIST_FILE = SimpleSOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;

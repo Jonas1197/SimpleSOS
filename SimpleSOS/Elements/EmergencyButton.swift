@@ -155,7 +155,6 @@ class EmergencyButton: UIView {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(emergencyButtonTapped))
         innerCircle.addGestureRecognizer(tap)
-        
     }
     
     private func configureEmergencyLabel() {
@@ -180,7 +179,6 @@ class EmergencyButton: UIView {
         
         historyButton.addTarget(self, action: #selector(histroyButtonTapped), for: .touchUpInside)
         settingsButton.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
-      
     }
     
 
