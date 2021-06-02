@@ -112,6 +112,15 @@ class EmergencyButton: UIView {
         outerCircle.layer.shadowOpacity = 0
     }
   
+    func fix(in container: UIView, under view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(self)
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
+            widthAnchor.constraint(equalToConstant: frame.width),
+            centerXAnchor.constraint(equalTo: container.centerXAnchor)
+        ])
+    }
     
     
     //MARK: - Body
@@ -122,7 +131,6 @@ class EmergencyButton: UIView {
         configureInnerCircle()
         configureEmergencyLabel()
         configureButtons()
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     
@@ -174,7 +182,8 @@ class EmergencyButton: UIView {
         NSLayoutConstraint.activate([
             buttonshstack.leadingAnchor.constraint(equalTo: outerCircle.leadingAnchor, constant: 10),
             buttonshstack.trailingAnchor.constraint(equalTo: outerCircle.trailingAnchor, constant: -10),
-            buttonshstack.topAnchor.constraint(equalTo: outerCircle.bottomAnchor, constant: 14)
+            buttonshstack.topAnchor.constraint(equalTo: outerCircle.bottomAnchor, constant: 14),
+            buttonshstack.bottomAnchor.constraint(greaterThanOrEqualTo: bottomAnchor)
         ])
         
         historyButton.addTarget(self, action: #selector(histroyButtonTapped), for: .touchUpInside)

@@ -14,8 +14,8 @@
             filePath = "SimpleSOS/Elements/TogglesView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
             landmarkName = "switchToggled(_:)"
             landmarkType = "7">
          </BreakpointContent>

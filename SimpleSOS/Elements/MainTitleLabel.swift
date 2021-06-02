@@ -57,18 +57,13 @@ class MainTitleLabel: UIView {
     }
 
     
-    func add(to vc: UIViewController) {
-        vc.view.addSubview(self)
+    func fix(in view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(self)
         NSLayoutConstraint.activate([
-            topAnchor.constraint(equalTo: vc.view.topAnchor, constant: 50),
-            leadingAnchor.constraint(equalTo: vc.view.leadingAnchor, constant: 30),
-            widthAnchor.constraint(equalToConstant: 130),
-            heightAnchor.constraint(equalToConstant: 70)
+            topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30)
         ])
-        
-        if vc is SosVC {
-            delegate = vc as? MainTitleLabelDelegate
-        }
     }
     
     
@@ -76,7 +71,6 @@ class MainTitleLabel: UIView {
     //MARK: - Body
     
     private func setUp() {
-        translatesAutoresizingMaskIntoConstraints = false
         configureTitle()
         configureWhiteLine()
         setUpInteraction()
@@ -86,7 +80,9 @@ class MainTitleLabel: UIView {
         addSubview(title)
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            title.leadingAnchor.constraint(equalTo: leadingAnchor)
+            title.leadingAnchor.constraint(equalTo: leadingAnchor),
+            title.widthAnchor.constraint(greaterThanOrEqualTo: widthAnchor),
+            title.heightAnchor.constraint(greaterThanOrEqualTo: heightAnchor, multiplier: 0.5)
         ])
     }
     

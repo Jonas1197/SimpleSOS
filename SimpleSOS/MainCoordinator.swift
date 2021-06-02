@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol Coordinator {
     
     var childCoordinator: [Coordinator] { get set }
@@ -16,7 +15,6 @@ protocol Coordinator {
     
     func start()
 }
-
 
 class MainCoordinator: Coordinator {
     var childCoordinator: [Coordinator] = [Coordinator]()

@@ -48,8 +48,6 @@ struct SOSWidgetEntryView : View {
     private static let deeplinkURL: URL = URL(string: "widget-deeplink://")!
     
     var body: some View {
-        //Text(entry.date, style: .time)
-        //foregroundColor(.init(.softRed))
         
         ZStack(alignment: .center, content: {
             Rectangle()

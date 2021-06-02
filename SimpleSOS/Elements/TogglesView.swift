@@ -72,6 +72,17 @@ class TogglesView: UIView {
         setUp()
     }
     
+    func fix(in container: UIView, under view: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(self)
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.bottomAnchor, constant: 10),
+            bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 0),
+            leadingAnchor.constraint(equalTo: container.leadingAnchor),
+            trailingAnchor.constraint(equalTo: container.trailingAnchor)
+        ])
+    }
+    
     func add(toggeWithContact contact: SSContact) {
         let label = UILabel(text: contact.fullName, font: UIFont(name: Fonts.italic, size: 12)!, textColor: .white, tamic: false)
         labels.append(label)
@@ -96,7 +107,6 @@ class TogglesView: UIView {
         }
         
         contact.isSelected ? (toggle.isOn = true) : (toggle.isOn = false)
-        
     }
     
     private func configure() {

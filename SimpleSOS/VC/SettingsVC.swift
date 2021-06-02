@@ -51,7 +51,7 @@ class SettingsVC: UIViewController, Storyboarded {
     }
     
     private func configureMainTitle() {
-        mainTitle.add(to: self)
+        mainTitle.fix(in: view)
         mainTitle.text = "Settings"
     }
     
