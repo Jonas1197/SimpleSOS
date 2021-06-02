@@ -16,11 +16,11 @@ final class SosVC: UIViewController, Storyboarded {
 
     private var contact:         SSContact?
     
-    private var mainTitle:       MainTitleLabel  = .init()
+    private var mainTitle:       MainTitleLabel!
     
-    private var emergencyButton: EmergencyButton = .init()
+    private var emergencyButton: EmergencyButton!
     
-    private var togglesView:     TogglesView     = .init()
+    private var togglesView:     TogglesView!
 
     
     //MARK: - Main
@@ -46,39 +46,37 @@ final class SosVC: UIViewController, Storyboarded {
     }
     
     private func configureMainTitle() {
-        mainTitle.add(to: self)
+        mainTitle          = .init(frame: view.frame)
+        mainTitle.delegate = self
+        mainTitle.fix(in: view)
     }
     
     private func configureEmergencyButton() {
-        view.addSubview(emergencyButton)
-        NSLayoutConstraint.activate([
-            emergencyButton.topAnchor.constraint(equalTo: mainTitle.bottomAnchor, constant: 15),
-            emergencyButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            emergencyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            emergencyButton.heightAnchor.constraint(equalToConstant: view.frame.height/1.8)
-        ])
-        
+        emergencyButton          = .init(frame: view.frame)
         emergencyButton.delegate = self
+        emergencyButton.fix(in: view, under: mainTitle)
     }
     
     private func configureTogglesView() {
+        togglesView          = .init(frame: view.frame)
         togglesView.delegate = self
-        view.addSubview(togglesView)
-        NSLayoutConstraint.activate([
-            togglesView.topAnchor.constraint(equalTo: emergencyButton.bottomAnchor, constant: 50),
-            togglesView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            togglesView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            togglesView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        togglesView.fix(in: view, under: emergencyButton)
+
     }
     
     private func call(contact: SSContact) {
         let phoneNumber = contact.phoneNumber
-        guard let url = URL(string: "tel://\(phoneNumber)"),
-              UIApplication.shared.canOpenURL(url) else { return }
+        
+        guard let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) else { return }
+        
         UIApplication.shared.open(url, options: [:]) { didMakeCall in
             let callData = CallData(fullName: contact.fullName, phoneNumber: phoneNumber, time: Date.DateAndTimeAsString())
-            try? Archiver(directory: .callData).put(callData, forKey: phoneNumber)
+            
+            do {
+                try Archiver(directory: .callData).put(callData, forKey: phoneNumber)
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
     
@@ -128,6 +126,7 @@ extension SosVC: TogglesViewDelegate {
         }
         
         UserDefaults.save(contact)
+        
         WidgetCenter.shared.reloadAllTimelines()
     }
 }
